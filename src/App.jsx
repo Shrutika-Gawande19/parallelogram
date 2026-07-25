@@ -165,8 +165,11 @@ function reducer(state, action) {
       next.audioEnabled = !state.audioEnabled;
       break;
 
+    case 'RESET_STATE':
+      return makeInitialState();
+
     case 'RESTORE_SESSION':
-      return { ...makeInitialState(), ...action.payload, newBadge: null };
+      return makeInitialState();
 
     default:
       break;
@@ -187,30 +190,12 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, null, makeInitialState);
   const xpFloatRef = useRef(null);
 
-  // Session restore on mount
+  // Clear any existing stored session on mount to ensure fresh start from World 1
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(SESSION_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        const age = Date.now() - (parsed.sessionId || 0);
-        if (age < 24 * 60 * 60 * 1000) {
-          dispatch({ type: 'RESTORE_SESSION', payload: parsed });
-        }
-      }
+      localStorage.removeItem(SESSION_KEY);
     } catch (e) { /* ignore */ }
   }, []);
-
-  // Persist on every state change
-  useEffect(() => {
-    try {
-      localStorage.setItem(SESSION_KEY, JSON.stringify({
-        ...state,
-        worldQuestions: undefined, // don't persist large question set
-        sessionId: state.sessionId,
-      }));
-    } catch (e) { /* ignore */ }
-  }, [state]);
 
   const toggleAudio = useCallback(() => {
     stopNarration();
