@@ -87,10 +87,10 @@ export default function StoryPhase({ panelIndex, onNext, onPrev, onComplete, sta
 
           {/* Mascot Speech */}
           <div className="story-mascot">
-            <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ffc107', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <div className="story-mascot-head" style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ffc107', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <MascotHead />
             </div>
-            <div style={{
+            <div className="story-mascot-bubble" style={{
               background: 'white',
               color: '#1a1a3e',
               padding: '10px 16px',
@@ -123,7 +123,7 @@ export default function StoryPhase({ panelIndex, onNext, onPrev, onComplete, sta
           <button className="btn btn-outline btn-sm" onClick={onPrev} id="story-prev-btn">
             ← Back
           </button>
-        ) : <div style={{ minWidth: '80px' }} />}
+        ) : <div style={{ minWidth: '50px' }} />}
 
         {/* Dots */}
         <div className="story-dots">

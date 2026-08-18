@@ -110,24 +110,24 @@ export default function WonderPhase({ onComplete, state }) {
       </div>
 
       {/* Main Content Card */}
-      <div className="glass-card" style={{ width: '100%', maxWidth: '600px', padding: '20px', textAlign: 'center', marginBottom: '16px' }}>
+      <div className="glass-card" style={{ width: '100%', maxWidth: '800px', padding: '30px', textAlign: 'center', marginBottom: '16px' }}>
         <div style={{ marginBottom: '16px', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <GateSVG animPhase={animPhase} revealed={revealed} />
         </div>
-        
-        <p style={{ fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.5, color: 'rgba(255,255,255,0.95)', marginBottom: '16px' }}>
-          {HOOK_STEPS[step]}
+
+        <p style={{ fontSize: '2.0rem', fontWeight: 800, lineHeight: 1.5, color: "white", marginBottom: '16px', textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
+          ✨ {HOOK_STEPS[step]} ✨
         </p>
 
         {revealed && (
           <div style={{
             animation: 'fadeInUp 0.6s ease',
           }}>
-            <p style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '1.3rem', color: '#ffc107', fontWeight: 700, marginBottom: '8px' }}>
-              Let's discover what shape this is! 🔍
+            <p style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '2rem', color: '#ffc107', fontWeight: 800, marginBottom: '12px', textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
+              🌟 Let's discover what shape this is! 🔍
             </p>
-            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.7)', fontStyle: 'italic' }}>
-              We'll explore its properties and find out!
+            <p style={{ fontSize: '1.4rem', color: '#b39ddb', fontStyle: 'italic', fontWeight: 'bold' }}>
+              We'll explore its properties and find out! 🚀
             </p>
           </div>
         )}

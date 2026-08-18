@@ -17,13 +17,6 @@ const WORLD_THEMES = [
   { name: 'Playground', icon: '🏫' },
   { name: 'Workshop', icon: '🔨' },
   { name: 'Kite Park', icon: '🪁' },
-  { name: 'Frame Shop', icon: '🖼️' },
-  { name: 'Tile World', icon: '🧩' },
-  { name: 'Gate Land', icon: '🚪' },
-  { name: 'Rack Zone', icon: '👕' },
-  { name: 'Angle Isle', icon: '📐' },
-  { name: 'Algebra Bay', icon: '🔣' },
-  { name: 'Master Peak', icon: '🏆' },
 ];
 
 export default function PlayPhase({ state, dispatch, onComplete }) {
@@ -69,7 +62,7 @@ export default function PlayPhase({ state, dispatch, onComplete }) {
     if (newQ >= totalQ) {
       // World complete
       setShowWorldMap(true);
-      if (currentWorld >= 9) {
+      if (currentWorld >= WORLD_THEMES.length - 1) {
         onComplete();
       } else {
         dispatch({ type: 'NEXT_QUESTION' });
@@ -93,12 +86,12 @@ export default function PlayPhase({ state, dispatch, onComplete }) {
   return (
     <div className="phase-content">
       <div style={{ textAlign: 'center', marginBottom: '4px' }}>
-        <span className="q-type-badge">🎮 Phase 4 — Play</span>
+        <span className="q-type-badge">🎮 Phase 4 — Practice</span>
       </div>
 
       {showWorldMap ? (
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-          <h2 style={{ fontFamily: "'Fredoka', sans-serif", color: '#fff', margin: '10px 0 0' }}>Play — Choose Your World!</h2>
+          <h2 style={{ fontFamily: "'Fredoka', sans-serif", color: '#fff', margin: '10px 0 0' }}>Practice — Choose Your World!</h2>
           <WorldMap
             worlds={WORLD_THEMES}
             currentWorld={currentWorld}
@@ -108,9 +101,18 @@ export default function PlayPhase({ state, dispatch, onComplete }) {
           />
           {hasCompletedAnyWorld && (
             <button 
-              className="btn btn-outline" 
-              style={{ marginTop: '20px' }}
+              className="btn btn-primary btn-lg" 
+              style={{
+                marginTop: '10px',
+                padding: '12px 28px',
+                fontSize: '1.1rem',
+                borderRadius: '999px',
+                background: 'linear-gradient(135deg, #7c4dff, #536dfe)',
+                boxShadow: '0 4px 16px rgba(124, 77, 255, 0.4)',
+                animation: 'bounceIn 0.5s ease',
+              }}
               onClick={onComplete}
+              id="skip-to-reflect-btn"
             >
               Skip to Reflect Phase ⏭️
             </button>
@@ -150,20 +152,34 @@ export default function PlayPhase({ state, dispatch, onComplete }) {
               attemptCount={attemptCount}
             />
           ) : (
-            <div className="glass-card" style={{ textAlign: 'center', padding: '40px' }}>
-              <p style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '1.5rem', fontWeight: 700, color: '#81c784' }}>
+            <div className="glass-card" style={{ textAlign: 'center', padding: '30px', maxWidth: '400px', width: '100%' }}>
+              <p style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '1.5rem', fontWeight: 700, color: '#81c784', marginBottom: '8px' }}>
                 🎉 World {currentWorld + 1} Complete!
               </p>
               <StarRating stars={calcStars(worldScore)} large />
-              {currentWorld < 9 ? (
-                <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={() => setShowWorldMap(true)}>
-                  Back to Map 🗺️
-                </button>
-              ) : (
-                <button className="btn btn-green" style={{ marginTop: '20px' }} onClick={onComplete}>
-                  Finish! 🏆
-                </button>
-              )}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '20px' }}>
+                {currentWorld < WORLD_THEMES.length - 1 ? (
+                  <>
+                    <button className="btn btn-primary" onClick={() => setShowWorldMap(true)}>
+                      Back to Map 🗺️
+                    </button>
+                    <button
+                      className="btn btn-green"
+                      onClick={onComplete}
+                      id="world-complete-reflect-btn"
+                      style={{
+                        background: 'linear-gradient(135deg, #7c4dff, #536dfe)',
+                      }}
+                    >
+                      Skip to Reflect Phase ⏭️
+                    </button>
+                  </>
+                ) : (
+                  <button className="btn btn-green" onClick={onComplete}>
+                    Finish & Reflect! 🏆
+                  </button>
+                )}
+              </div>
             </div>
           )}
         </div>

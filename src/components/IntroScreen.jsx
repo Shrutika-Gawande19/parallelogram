@@ -4,7 +4,7 @@ const JOURNEY_ITEMS = [
   { icon: '🔍', label: 'Wonder', desc: 'A sliding gate mystery!' },
   { icon: '📖', label: 'Story', desc: 'See parallelograms in action' },
   { icon: '🧪', label: 'Simulate', desc: 'Build and explore' },
-  { icon: '🎮', label: 'Play', desc: 'Gamified challenges' },
+  { icon: '🎮', label: 'Practice', desc: 'Gamified challenges' },
   { icon: '📓', label: 'Reflect', desc: 'What did you learn?' },
 ];
 

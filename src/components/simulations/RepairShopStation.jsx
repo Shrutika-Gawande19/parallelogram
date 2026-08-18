@@ -108,8 +108,8 @@ function MissionSides({ onDone }) {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
       <div style={{
         background: 'rgba(255,193,7,0.12)', border: '1px solid rgba(255,193,7,0.3)',
-        borderRadius: '10px', padding: '10px 16px', textAlign: 'center',
-        fontSize: '0.88rem', fontWeight: 700, color: '#ffd54f', maxWidth: 320,
+        borderRadius: '10px', padding: '12px 20px', textAlign: 'center',
+        fontSize: '1.2rem', fontWeight: 800, color: '#ffd54f', maxWidth: 450,
       }}>
         Click the side equal and parallel to <strong>AB</strong> (highlighted in gold)
       </div>
@@ -231,8 +231,8 @@ function MissionAngles({ onDone }) {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
       <div style={{
         background: 'rgba(255,193,7,0.12)', border: '1px solid rgba(255,193,7,0.3)',
-        borderRadius: '10px', padding: '10px 16px', textAlign: 'center',
-        fontSize: '0.88rem', fontWeight: 700, color: '#ffd54f', maxWidth: 320,
+        borderRadius: '10px', padding: '12px 20px', textAlign: 'center',
+        fontSize: '1.2rem', fontWeight: 800, color: '#ffd54f', maxWidth: 450,
       }}>
         Angle A = <strong>{angleA}°</strong>. Click the angle that equals it!
       </div>
@@ -327,8 +327,8 @@ function MissionDiagonals({ onDone }) {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
       <div style={{
         background: 'rgba(255,193,7,0.12)', border: '1px solid rgba(255,193,7,0.3)',
-        borderRadius: '10px', padding: '10px 16px', textAlign: 'center',
-        fontSize: '0.88rem', fontWeight: 700, color: '#ffd54f', maxWidth: 340,
+        borderRadius: '10px', padding: '12px 20px', textAlign: 'center',
+        fontSize: '1.2rem', fontWeight: 800, color: '#ffd54f', maxWidth: 450,
       }}>
         Press the button to draw the diagonals and discover their secret!
       </div>

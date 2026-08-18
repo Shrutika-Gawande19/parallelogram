@@ -21,7 +21,7 @@ export const JOURNEY_ITEMS = [
   { icon: '🔍', label: 'Wonder' },
   { icon: '📖', label: 'Story' },
   { icon: '🧪', label: 'Simulate' },
-  { icon: '🎮', label: 'Play' },
+  { icon: '🎮', label: 'Practice' },
   { icon: '📓', label: 'Reflect' },
 ];
 
@@ -219,22 +219,42 @@ export default function App() {
           <ProgressMap phase={state.phase} phaseOrder={PHASE_ORDER} />
         )}
 
-        {/* Home button */}
-        {isInPhase && (
-          <button className="home-btn" onClick={goHome} id="home-btn" aria-label="Go home">
-            🏠 Home
-          </button>
-        )}
-
-        {/* Audio toggle */}
-        <button
-          className="audio-toggle-btn"
-          onClick={toggleAudio}
-          id="audio-toggle-btn"
-          aria-label={state.audioEnabled ? 'Mute audio' : 'Enable audio'}
+        {/* Top-left Navigation / Audio Controls */}
+        <div
+          style={{
+            position: 'fixed',
+            top: '16px',
+            left: '16px',
+            zIndex: 200,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+          }}
         >
-          {state.audioEnabled ? '🔊' : '🔇'}
-        </button>
+          {/* Home button */}
+          {isInPhase && (
+            <button
+              className="home-btn"
+              onClick={goHome}
+              id="home-btn"
+              aria-label="Go home"
+              style={{ position: 'static' }}
+            >
+              🏠 Home
+            </button>
+          )}
+
+          {/* Audio toggle */}
+          <button
+            className="audio-toggle-btn"
+            onClick={toggleAudio}
+            id="audio-toggle-btn"
+            aria-label={state.audioEnabled ? 'Mute audio' : 'Enable audio'}
+            style={{ position: 'static', top: 'auto', left: 'auto', right: 'auto' }}
+          >
+            {state.audioEnabled ? '🔊' : '🔇'}
+          </button>
+        </div>
 
         {/* Phase renderer */}
         {state.phase === 'intro' && (

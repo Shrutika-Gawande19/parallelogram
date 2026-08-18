@@ -24,10 +24,10 @@ export function generateSessionQuestions(bank, countPerType = 10) {
   return shuffleArray(session);
 }
 
-// Generate 10 questions per world (10 worlds = 100 questions total)
+// Generate 10 questions per world (3 worlds = 30 questions total)
 export function partitionIntoWorlds(questions) {
   const worlds = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 3; i++) {
     worlds.push(questions.slice(i * 10, i * 10 + 10));
   }
   return worlds;

@@ -194,8 +194,8 @@ export default function ShapeShifterStation({ onComplete }) {
       {/* ── Header ── */}
       <div style={{ textAlign: 'center' }}>
         <span style={{
-          fontFamily: "'Fredoka', sans-serif", fontSize: '1.05rem', fontWeight: 700,
-          color: 'rgba(255,255,255,0.75)',
+          fontFamily: "'Fredoka', sans-serif", fontSize: '1.4rem', fontWeight: 800,
+          color: '#4fc3f7', textShadow: '1px 1px 3px rgba(0,0,0,0.4)'
         }}>
           {!scannerActive
             ? '🖱️ Drag the top-right corner to tilt the shape!'

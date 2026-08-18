@@ -410,10 +410,10 @@ export default function CityBuilderStation({ onComplete }) {
             border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: '14px', padding: '14px 16px',
           }}>
-            <div style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '1.2rem', fontWeight: 700, color: 'var(--gold)', marginBottom: '8px' }}>
+            <div style={{ fontFamily: "'Fredoka', sans-serif", fontSize: '1.5rem', fontWeight: 800, color: 'var(--gold)', marginBottom: '10px', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
               {currentChallenge.icon} {currentChallenge.title}
             </div>
-            <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px', lineHeight: 1.4, background: 'rgba(0,0,0,0.2)', padding: '10px', borderRadius: '8px', borderLeft: '4px solid var(--gold)' }}>
+            <div style={{ fontSize: '1.3rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px', lineHeight: 1.4, background: 'rgba(0,0,0,0.2)', padding: '12px', borderRadius: '8px', borderLeft: '4px solid var(--gold)' }}>
               {currentChallenge.desc}
             </div>
 

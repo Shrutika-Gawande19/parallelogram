@@ -125,31 +125,61 @@ export default function SimulatePhase({
         padding: '12px 16px',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'space-between',
         gap: '12px',
         animation: 'slideInUp 0.4s ease',
+        flexWrap: 'wrap',
       }}>
-        <div style={{
-          width: 44, height: 44, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.08)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '1.4rem', flexShrink: 0,
-        }}>
-          {current.icon}
-        </div>
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
-            fontFamily: "'Fredoka', sans-serif",
-            fontSize: 'clamp(1rem, 3.5vw, 1.3rem)',
-            fontWeight: 700,
-            color: current.color,
-            lineHeight: 1.2,
+            width: 44, height: 44, borderRadius: '50%',
+            background: 'rgba(255,255,255,0.08)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '1.4rem', flexShrink: 0,
           }}>
-            {current.title}
+            {current.icon}
           </div>
-          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>
-            {current.subtitle}
+          <div>
+            <div style={{
+              fontFamily: "'Fredoka', sans-serif",
+              fontSize: 'clamp(1.4rem, 4vw, 1.8rem)',
+              fontWeight: 700,
+              color: current.color,
+              lineHeight: 1.2,
+            }}>
+              {current.title}
+            </div>
+            <div style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.75)', marginTop: '2px', fontWeight: 'bold' }}>
+              {current.subtitle}
+            </div>
           </div>
         </div>
+
+        {!allDone && (
+          <button
+            onClick={() => onCompleteStation(currentStation, true)}
+            id="skip-station-btn"
+            className="btn btn-outline"
+            style={{
+              padding: '8px 18px',
+              fontSize: '0.95rem',
+              fontWeight: 700,
+              borderRadius: '999px',
+              border: `1.5px solid ${current.colorBorder}`,
+              background: 'rgba(255, 255, 255, 0.1)',
+              color: '#fff',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              cursor: 'pointer',
+              marginLeft: 'auto',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+            }}
+            title="Skip this simulation station"
+          >
+            Skip Station ⏭️
+          </button>
+        )}
       </div>
 
       {/* ── Station content ── */}
@@ -191,7 +221,7 @@ export default function SimulatePhase({
             id="simulate-complete-btn"
             style={{ animation: 'bounceIn 0.5s ease' }}
           >
-            🎮 Let's Play!
+            🎮 Let's Practice!
           </button>
         </div>
       )}
